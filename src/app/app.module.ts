@@ -4,17 +4,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ListingDetailsComponent } from './components/listing-details/listing-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SidenavListComponent } from './components/sidenav-list/sidenav-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ListingDetailsComponent
+    ListingDetailsComponent,
+    SidenavListComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +27,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatIconModule,
+    MatListModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

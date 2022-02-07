@@ -1,5 +1,14 @@
-<app-header></app-header>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation" fixedInViewport="true">
+        <app-sidenav-list (sideNavClose)="sidenav.close()"></app-sidenav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <app-header (sideNavToggle)="sidenav.toggle()"></app-header>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
 <div id="hero"></div>
+
 <ng-container *ngIf="!hasLoaded then loading else displayError"></ng-container>
 <ng-template #displayError>
     <ng-container *ngIf="hasError then error else displayListingInfo"></ng-container>
