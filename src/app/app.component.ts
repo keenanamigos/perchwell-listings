@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatSpinner } from '@angular/material/progress-spinner';
 import { of } from 'rxjs';
 import { catchError, take } from 'rxjs/operators';
 

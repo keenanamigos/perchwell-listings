@@ -12,8 +12,8 @@
     <mat-spinner class="spinner"></mat-spinner>
 </ng-template>
 <ng-template #error>
-    There was an error while trying to retrieve the listings. Please click the button below to retry.
-    <!-- Add mat button to retry API call - retry() -->
+    <div>There was an error while trying to retrieve the listings. Please click the button below to retry.</div>
+    <button mat-raised-button (click)="retry()">Retry</button>
 </ng-template>
 <ng-template #listingInfo>
     <app-listing-details
