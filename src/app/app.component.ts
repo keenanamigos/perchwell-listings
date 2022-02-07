@@ -37,9 +37,12 @@ export class AppComponent implements OnInit {
       this.listings = listing && listing.listings ? listing.listings : [];
       // TODO - Use this property to control a spinner in the listing section
       this.hasLoaded = true;
-      if (this.listings.length > 0) {
-        this.hasError = false;
-      }
     });
+  }
+
+  retry(): void {
+    this.hasLoaded = false;
+    this.hasError = false;
+    this.getListings();
   }
 }
