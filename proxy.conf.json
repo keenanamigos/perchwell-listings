@@ -1,0 +1,10 @@
+{
+    "/api": {
+        "target": "https://staging.perchwell.com/api/feeds",
+        "secure": true,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api": ""
+        }
+    }
+}

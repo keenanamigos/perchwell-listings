@@ -8,7 +8,8 @@ import { Listing } from '../interfaces/listing';
 })
 export class ListingsService {
   private _accountName = 'sothebys_international_realty';
-  private _url = 'https://staging.perchwell.com/api/feeds/';
+  // Need to use a proxy for the https://staging.perchwell.com/api/feeds endpoint to avoid CORS issues
+  private _url = 'http://localhost:4200/api';
   private _headers = new HttpHeaders({
     "Authorization": "Qs7MGQchX2DUZ9BX8wYpjjgM"
   });

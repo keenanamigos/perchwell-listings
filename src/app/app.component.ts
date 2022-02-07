@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { of } from 'rxjs';
+import { EMPTY, of } from 'rxjs';
 import { catchError, take } from 'rxjs/operators';
 import { Listing } from './interfaces/listing';
 import { ListingElement } from './interfaces/listing-element';
@@ -21,13 +21,13 @@ export class AppComponent implements OnInit {
       .pipe(
         take(1),
         catchError((error) => {
-          // TODO - Handle error behavior for API failure
-          console.log(error)
+          // In a production-level app you could log this error to New Relic or some similar service
+          console.log(`An error occured while trying to retrieve the listings: ${error}`);
           return of(error);
         })
       )
       .subscribe((listing: Listing) => {
-        this.listings = listing ? listing.listings : [];
+        this.listings = listing && listing.listings ? listing.listings : [];
       });
   }
 }
