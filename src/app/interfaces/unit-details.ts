@@ -1,3 +1,8 @@
+import { Configuration } from "../enums/configuration";
+import { Furnished } from "../enums/furnished";
+import { GeneralCondition } from "../enums/general-condition";
+import { PropertyType } from "../enums/property-type";
+
 export interface UnitDetails {
     beds:                number;
     floor_number?:       number;
