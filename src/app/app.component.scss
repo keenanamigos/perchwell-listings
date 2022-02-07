@@ -1,9 +1,21 @@
-#hero {
+.hero {
   background-image: url("https://cdn.pixabay.com/photo/2016/11/29/03/53/house-1867187__340.jpg");
+  height: 40vh;
+  width: 100vw;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-text {
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .spinner {
-  margin: 15% auto;
+  margin: 5% auto;
 }
 
 .sidenav-container-div {

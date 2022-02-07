@@ -7,29 +7,33 @@
     </mat-sidenav-content>
 </mat-sidenav-container>
 
-<div id="hero"></div>
+<section class="hero">
+    <div class="hero-text">Find a home that suits your lifestyle</div>
+</section>
 
-<ng-container *ngIf="!hasLoaded then loading else displayError"></ng-container>
-<ng-template #displayError>
-    <ng-container *ngIf="hasError then error else displayListingInfo"></ng-container>
-</ng-template>
-<ng-template #displayListingInfo>
-    <ng-container *ngIf="hasLoaded && listings && listings.length > 0 then listingInfo else noListingsFound"></ng-container>
-</ng-template>
-
-<ng-template #loading>
-    <mat-spinner class="spinner"></mat-spinner>
-</ng-template>
-<ng-template #error>
-    <div>There was an error while trying to retrieve the listings. Please click the button below to retry.</div>
-    <button mat-raised-button (click)="retry()">Retry</button>
-</ng-template>
-<ng-template #listingInfo>
-    <app-listing-details
-        *ngFor="let listing of listings"
-        [listing]="listing">
-    </app-listing-details>
-</ng-template>
-<ng-template #noListingsFound>No listings found.</ng-template>
+<main>
+    <ng-container *ngIf="!hasLoaded then loading else displayError"></ng-container>
+    <ng-template #displayError>
+        <ng-container *ngIf="hasError then error else displayListingInfo"></ng-container>
+    </ng-template>
+    <ng-template #displayListingInfo>
+        <ng-container *ngIf="hasLoaded && listings && listings.length > 0 then listingInfo else noListingsFound"></ng-container>
+    </ng-template>
+    
+    <ng-template #loading>
+        <mat-spinner class="spinner"></mat-spinner>
+    </ng-template>
+    <ng-template #error>
+        <div>There was an error while trying to retrieve the listings. Please click the button below to retry.</div>
+        <button mat-raised-button (click)="retry()">Retry</button>
+    </ng-template>
+    <ng-template #listingInfo>
+        <app-listing-details
+            *ngFor="let listing of listings"
+            [listing]="listing">
+        </app-listing-details>
+    </ng-template>
+    <ng-template #noListingsFound>No listings found.</ng-template>
+</main>
 
 <footer></footer>
