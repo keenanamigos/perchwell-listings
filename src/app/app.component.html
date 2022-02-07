@@ -8,7 +8,9 @@
     <ng-container *ngIf="hasLoaded && listings && listings.length > 0 then listingInfo else noListingsFound"></ng-container>
 </ng-template>
 
-<ng-template #loading>Loading...</ng-template>
+<ng-template #loading>
+    <mat-spinner class="spinner"></mat-spinner>
+</ng-template>
 <ng-template #error>
     There was an error while trying to retrieve the listings. Please click the button below to retry.
     <!-- Add mat button to retry API call - retry() -->

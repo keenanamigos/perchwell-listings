@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { EMPTY, of } from 'rxjs';
+import { MatSpinner } from '@angular/material/progress-spinner';
+import { of } from 'rxjs';
 import { catchError, take } from 'rxjs/operators';
+
 import { Listing } from './interfaces/listing';
 import { ListingElement } from './interfaces/listing-element';
 import { ListingsService } from './services/listings.service';
@@ -35,7 +37,6 @@ export class AppComponent implements OnInit {
     )
     .subscribe((listing: Listing) => {
       this.listings = listing && listing.listings ? listing.listings : [];
-      // TODO - Use this property to control a spinner in the listing section
       this.hasLoaded = true;
     });
   }
