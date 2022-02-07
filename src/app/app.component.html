@@ -1,14 +1,24 @@
 <app-header></app-header>
 <div id="hero"></div>
-<div *ngIf="hasError">
+<ng-container *ngIf="!hasLoaded then loading else displayError"></ng-container>
+<ng-template #displayError>
+    <ng-container *ngIf="hasError then error else displayListingInfo"></ng-container>
+</ng-template>
+<ng-template #displayListingInfo>
+    <ng-container *ngIf="hasLoaded && listings && listings.length > 0 then listingInfo else noListingsFound"></ng-container>
+</ng-template>
+
+<ng-template #loading>Loading...</ng-template>
+<ng-template #error>
     There was an error while trying to retrieve the listings. Please click the button below to retry.
-    <!-- Add button to retry API call - getListings() -->
-</div>
-<div *ngIf="listings && listings.length > 0">
+    <!-- Add mat button to retry API call - getListings() -->
+</ng-template>
+<ng-template #listingInfo>
     <app-listing-details
         *ngFor="let listing of listings"
         [listing]="listing">
     </app-listing-details>
-</div>
+</ng-template>
 <ng-template #noListingsFound>No listings found.</ng-template>
+
 <footer></footer>

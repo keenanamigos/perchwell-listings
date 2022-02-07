@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   title = 'perchwell-listings';
   listings!: ListingElement[];
   hasError = false;
+  hasLoaded = false;
 
   constructor(private listingsService: ListingsService) {}
 
@@ -34,6 +35,8 @@ export class AppComponent implements OnInit {
     )
     .subscribe((listing: Listing) => {
       this.listings = listing && listing.listings ? listing.listings : [];
+      // TODO - Use this property to control a spinner in the listing section
+      this.hasLoaded = true;
       if (this.listings.length > 0) {
         this.hasError = false;
       }
