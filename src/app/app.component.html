@@ -1,5 +1,14 @@
-<!-- Header Component -->
-<!-- Hero Image -->
+<app-header></app-header>
 <div id="hero"></div>
-<!-- ListingDetails Component -->
-<!-- Footer -->
+<div *ngIf="hasError">
+    There was an error while trying to retrieve the listings. Please click the button below to retry.
+    <!-- Add button to retry API call - getListings() -->
+</div>
+<div *ngIf="listings && listings.length > 0">
+    <app-listing-details
+        *ngFor="let listing of listings"
+        [listing]="listing">
+    </app-listing-details>
+</div>
+<ng-template #noListingsFound>No listings found.</ng-template>
+<footer></footer>
