@@ -1,1 +1,18 @@
-<div>Listing details works!</div>
+<div class="container">
+    <mat-card class="mat-elevation-z4">
+        <mat-card-content>
+            <img mat-card-image [src]="listingForDisplay.image" alt="Listing Image" />
+            <div>{{ listingForDisplay.status }}</div>
+            <div *ngIf="listingForDisplay.newDevelopment">New Development</div>
+            <div>{{ listingForDisplay.location }}</div>
+            <div>
+                <span class="price">{{ listingForDisplay.unitMonthlyCosts }}</span>
+                <span>{{ listingForDisplay.unitDetails }}</span>
+            </div>
+            <div>
+                <span>{{ listingForDisplay.neighborhood }} </span>
+                <span>{{ listingForDisplay.propertyType }}</span>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

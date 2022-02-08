@@ -14,18 +14,19 @@ export class ListingDetailsComponent implements OnInit {
   listingForDisplay!: ListingForDisplay;
 
   ngOnInit(): void {
-    this.listingForDisplay = this._prepareForDisplay();
+    this.listingForDisplay = this._prepareListingForDisplay();
   }
 
-  private _prepareForDisplay(): ListingForDisplay {
+  private _prepareListingForDisplay(): ListingForDisplay {
     return {
       status: this.listing.listing_details.status,
       newDevelopment: this.listing.features.new_development,
       location: this.listing.location.address_with_unit,
-      unitMonthlyCosts: `$ ${this.listing.unit_details.total_monthlies} / mo`,
+      unitMonthlyCosts: `$ ${this._formatCurrentPrice()} / mo`,
       unitDetails: this._generateUnitDetailsForDisplay(),
       neighborhood: this.listing.location.place,
-      propertyType: this.listing.unit_details.property_type
+      propertyType: this.listing.unit_details.property_type,
+      image: this.listing.media.main_image
     }
   }
 
@@ -33,7 +34,15 @@ export class ListingDetailsComponent implements OnInit {
     return this.listing.unit_details.full_baths + this.listing.unit_details.half_baths;
   }
 
-  private _generateUnitDetailsForDisplay(): string {
-    return `${this.listing.unit_details.beds} BD | ${this._getBathroomAmount()} BA | ${this.listing.unit_details.sqft} SQFT`;
+  private _generateUnitDetailsForDisplay(): string { 
+    const withSqft = `${this.listing.unit_details.beds} BD | ${this._getBathroomAmount()} BA | ${this.listing.unit_details.sqft} SQFT`;
+    const withoutSqft = `${this.listing.unit_details.beds} BD | ${this._getBathroomAmount()} BA`;
+
+    return this.listing.unit_details.sqft ? withSqft : withoutSqft;
+  }
+
+  private _formatCurrentPrice() {
+    const currentPrice = this.listing.listing_details.current_price;
+    return currentPrice.toLocaleString("en-US");
   }
 }

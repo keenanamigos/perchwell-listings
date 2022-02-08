@@ -8,5 +8,6 @@ export interface ListingForDisplay {
     unitMonthlyCosts: string;
     unitDetails: string;
     neighborhood: string;
-    propertyType: PropertyType
+    propertyType: PropertyType;
+    image?: string;
 }

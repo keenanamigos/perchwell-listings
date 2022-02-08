@@ -6,6 +6,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
@@ -30,6 +32,8 @@ import { SidenavListComponent } from './components/sidenav-list/sidenav-list.com
     MatToolbarModule,
     MatIconModule,
     MatListModule,
+    MatCardModule,
+    MatButtonModule,
     FlexLayoutModule
   ],
   providers: [],

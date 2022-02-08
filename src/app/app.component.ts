@@ -35,7 +35,10 @@ export class AppComponent implements OnInit {
       })
     )
     .subscribe((listing: Listing) => {
-      this.listings = listing && listing.listings ? listing.listings : [];
+      this.listings = listing && listing.listings && listing.listings.length > 0 ?
+        this.listingsService.getListingsWithProperBackgrounds(listing.listings) : [];
+      
+      this._updateMainImage();
       this.hasLoaded = true;
     });
   }
@@ -44,5 +47,17 @@ export class AppComponent implements OnInit {
     this.hasLoaded = false;
     this.hasError = false;
     this.getListings();
+  }
+
+  // Adding this for presentation due to 'Access Denied' issue for the given image
+  private _updateMainImage() {
+    const idOfBrokenListing = 3203391;
+    const validUrl = 'https://media-staging.perchwell.com/property_images/pictures/011/021/447/medium/open-uri20210728-221-12rj8z7?1627500193';
+    if (this.listings.length > 0) {
+      const listingWithBrokenImage = this.listings.find(listing => listing.id === idOfBrokenListing)
+      if (listingWithBrokenImage) {
+        listingWithBrokenImage.media.main_image = validUrl;
+      }
+    }
   }
 }

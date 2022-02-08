@@ -24,16 +24,21 @@
         <mat-spinner class="spinner"></mat-spinner>
     </ng-template>
     <ng-template #error>
-        <div>There was an error while trying to retrieve the listings. Please click the button below to retry.</div>
-        <button mat-raised-button (click)="retry()">Retry</button>
+        <div class="error">
+            <span>There was an error while trying to retrieve the listings. Please click the button below to retry.</span>
+            <div><button class="retry-button" mat-raised-button color="primary" (click)="retry()">Retry</button></div>
+        </div>
     </ng-template>
     <ng-template #listingInfo>
-        <app-listing-details
-            *ngFor="let listing of listings"
-            [listing]="listing">
-        </app-listing-details>
+        <div class="listings">
+            <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="32px" fxLayoutAlign="flex-start">
+                <div fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%" *ngFor="let listing of listings">
+                    <app-listing-details [listing]="listing"></app-listing-details>
+                </div>
+            </div>
+        </div>
     </ng-template>
-    <ng-template #noListingsFound>No listings found.</ng-template>
+    <ng-template #noListingsFound><div class="no-listings-found">No listings found.</div></ng-template>
 </main>
 
 <div class="footer-wrapper">

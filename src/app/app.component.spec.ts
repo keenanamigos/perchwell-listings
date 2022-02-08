@@ -48,13 +48,18 @@ describe('AppComponent', () => {
 
   describe('getListings', () => {
     it('should get all of the listings when the call is successful', () => {
-      jest.spyOn(listingsService, 'getListingsForAccount').mockReturnValue(of({ total: 1, listings: [{ id: 1}]} as any))
+      jest.spyOn(listingsService, 'getListingsForAccount').mockReturnValue(
+        of({
+          total: 1,
+          listings: [{ id: 1, media: { main_image: 'someValue.png' }}]
+        } as any)
+      )
 
       component.getListings();
 
       expect(component.hasError).toEqual(false);
       expect(component.hasLoaded).toEqual(true);
-      expect(component.listings).toEqual([{ id: 1} as any])
+      expect(component.listings).toEqual([{ id: 1, media: { main_image: 'someValue.png' }} as any])
     });
 
     it('should set the listings to an empty array when the call is successful but no listings are returned', () => {
