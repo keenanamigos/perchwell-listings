@@ -1,4 +1,4 @@
-export interface Location {
+export interface ListingLocation {
     address:           string;
     address_with_unit: string;
     city:              string;

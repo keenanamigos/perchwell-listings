@@ -24,4 +24,8 @@ describe('ListingDetailsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  describe('_prepareForDisplay', () => {
+    
+  });
 });

@@ -2,6 +2,7 @@ import { Agent } from "./agent";
 import { BuildingDetails } from "./building-details";
 import { Features } from "./features";
 import { ListingDetails } from "./listing-details";
+import { ListingLocation } from "./listing-location";
 import { Media } from "./media";
 import { Policies } from "./policies";
 import { RentalDetails } from "./rental-details";
@@ -10,7 +11,7 @@ import { ViewsAndExposures } from "./views-and-exposures";
 
 export interface ListingElement {
     id:                  number;
-    location:            Location;
+    location:            ListingLocation;
     agents:              Agent[];
     media:               Media;
     public_documents:    any[];
