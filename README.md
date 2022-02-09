@@ -18,6 +18,8 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `npm test` to execute the unit tests via [Jest](https://jestjs.io/).
 
+- To run the tests and view the coverage statistics, run `npm run test:coverage`
+
 ## Running end-to-end tests
 
 NOTE - To run the E2E tests properly, you must first have the application running in another window on `localhost:4200`.
