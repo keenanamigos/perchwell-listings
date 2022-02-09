@@ -48,7 +48,8 @@
     ],
     "testPathIgnorePatterns": [
       "<rootDir>/node_modules/",
-      "<rootDir>/dist/"
+      "<rootDir>/dist/",
+      "<rootDir>/cypress/"
     ],
     "globals": {
       "ts-jest": {

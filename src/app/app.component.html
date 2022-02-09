@@ -3,12 +3,12 @@
         <app-sidenav-list (sideNavClose)="sidenav.close()"></app-sidenav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-        <app-header (sideNavToggle)="sidenav.toggle()"></app-header>
+        <app-header (sideNavToggle)="sidenav.toggle()" data-e2e="app-header"></app-header>
     </mat-sidenav-content>
 </mat-sidenav-container>
 
-<section class="hero">
-    <div class="hero-text">Find a home that suits your lifestyle</div>
+<section class="hero" data-e2e="hero-image">
+    <div class="hero-text" data-e2e="hero-text">Find a home that suits your lifestyle</div>
 </section>
 
 <main>
@@ -24,7 +24,7 @@
         <mat-spinner class="spinner"></mat-spinner>
     </ng-template>
     <ng-template #error>
-        <div class="error">
+        <div class="error" data-e2e="error-block">
             <span>There was an error while trying to retrieve the listings. Please click the button below to retry.</span>
             <div><button class="retry-button" mat-raised-button color="primary" (click)="retry()">Retry</button></div>
         </div>
@@ -38,7 +38,7 @@
             </div>
         </div>
     </ng-template>
-    <ng-template #noListingsFound><div class="no-listings-found">No listings found.</div></ng-template>
+    <ng-template #noListingsFound><div class="no-listings-found" data-e2e="no-listings">No listings found.</div></ng-template>
 </main>
 
 <div class="footer-wrapper">
