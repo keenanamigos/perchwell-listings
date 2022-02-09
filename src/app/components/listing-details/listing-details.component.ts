@@ -41,7 +41,7 @@ export class ListingDetailsComponent implements OnInit {
     return this.listing.unit_details.sqft ? withSqft : withoutSqft;
   }
 
-  private _formatCurrentPrice() {
+  private _formatCurrentPrice(): string {
     const currentPrice = this.listing.listing_details.current_price;
     return currentPrice.toLocaleString("en-US");
   }

@@ -20,10 +20,10 @@ export class AppComponent implements OnInit {
   constructor(private listingsService: ListingsService) {}
 
   ngOnInit(): void {
-    this.getListings();
+    this._getListings();
   }
 
-  getListings(): void {
+  private _getListings(): void {
     this.listingsService.getListingsForAccount()
     .pipe(
       take(1),
@@ -46,7 +46,7 @@ export class AppComponent implements OnInit {
   retry(): void {
     this.hasLoaded = false;
     this.hasError = false;
-    this.getListings();
+    this._getListings();
   }
 
   // Adding this for presentation due to 'Access Denied' issue for the given image

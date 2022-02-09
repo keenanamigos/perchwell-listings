@@ -38,15 +38,15 @@ describe('AppComponent', () => {
 
   describe('ngOnInit', () => {
     it('should call getListings', () => {
-      jest.spyOn(component, 'getListings');
+      jest.spyOn<any, any>(component, '_getListings');
 
       component.ngOnInit();
 
-      expect(component.getListings).toHaveBeenCalledTimes(1);
+      expect(component["_getListings"]).toHaveBeenCalledTimes(1);
     });
   });
 
-  describe('getListings', () => {
+  describe('_getListings', () => {
     it('should get all of the listings when the call is successful', () => {
       jest.spyOn(listingsService, 'getListingsForAccount').mockReturnValue(
         of({
@@ -55,7 +55,7 @@ describe('AppComponent', () => {
         } as any)
       )
 
-      component.getListings();
+      component["_getListings"]();
 
       expect(component.hasError).toEqual(false);
       expect(component.hasLoaded).toEqual(true);
@@ -65,7 +65,7 @@ describe('AppComponent', () => {
     it('should set the listings to an empty array when the call is successful but no listings are returned', () => {
       jest.spyOn(listingsService, 'getListingsForAccount').mockReturnValue(of({ total: 0, listings: []}))
 
-      component.getListings();
+      component["_getListings"]();
 
       expect(component.hasError).toEqual(false);
       expect(component.hasLoaded).toEqual(true);
@@ -76,7 +76,7 @@ describe('AppComponent', () => {
       jest.spyOn(listingsService, 'getListingsForAccount').mockReturnValue(throwError(() => 'an unknown error occurred'));
       jest.spyOn(console, 'log');
 
-      component.getListings();
+      component["_getListings"]();
 
       expect(console.log).toHaveBeenCalledWith('An error occured while trying to retrieve the listings: "an unknown error occurred"');
       expect(component.hasError).toEqual(true);
@@ -87,11 +87,11 @@ describe('AppComponent', () => {
 
   describe('retry', () => {
     it('should call getListings when called', () => {
-      jest.spyOn(component, 'getListings');
+      jest.spyOn<any, any>(component, '_getListings');
 
       component.retry();
 
-      expect(component.getListings).toHaveBeenCalledTimes(1);
+      expect(component["_getListings"]).toHaveBeenCalledTimes(1);
     });
   });
 });
